@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HealthAI - AI-Based Health Information Chatbot. An educational healthcare assistant providing general health awareness, symptom guides, self-care information, and medical guidance." />
+  <meta name="keywords" content="health chatbot, AI health assistant, medical information, healthcare college project, symptoms guide" />
+  <title>HealthAI | AI-Based Health Information Chatbot</title>
+  
+  <!-- Google Fonts: Inter & Outfit for modern typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chat.css" />
+</head>
+<body>
+
+  <!-- ==================== TOP ANNOUNCEMENT / DISCLAIMER BAR ==================== -->
+  <aside class="top-banner" aria-label="Educational Notice">
+    <div class="container banner-content">
+      <span class="banner-badge">Educational Project</span>
+      <p class="banner-text">
+        <strong>Important Notice:</strong> HealthAI provides general health information only and is not a substitute for professional medical diagnosis or treatment.
+      </p>
+      <a href="#disclaimer" class="banner-link">Read Full Disclaimer &rarr;</a>
+    </div>
+  </aside>
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#home" class="brand-logo" aria-label="HealthAI Home">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+            <path d="M12 7v6" />
+            <path d="M9 10h6" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">Health<span class="accent-text">AI</span></span>
+          <span class="brand-subtitle">Health Info Assistant</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#chatbot" class="nav-link">Chatbot</a></li>
+          <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#objectives" class="nav-link">Objectives</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- CTA Button & Hamburger Menu -->
+      <div class="nav-actions">
+        <a href="#chatbot" class="btn btn-primary btn-sm nav-cta">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          <span>Start Chat</span>
+        </a>
+        <button class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ==================== 1. HOME / HERO SECTION ==================== -->
+    <section class="hero-section" id="home">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>AI-Based Health Information Chatbot</span>
+          </div>
+          <h1 class="hero-title">
+            Your AI <span class="gradient-text">Health Information</span> Assistant
+          </h1>
+          <p class="hero-description">
+            Ask general health questions, explore preventive wellness tips, understand common symptoms, and learn when to consult a qualified medical professional—all in simple, clear language.
+          </p>
+          <div class="hero-actions">
+            <a href="#chatbot" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
+              <span>Start Chatting</span>
+            </a>
+            <a href="#about" class="btn btn-secondary btn-lg">
+              <span>Learn More</span>
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero-stats">
+            <div class="stat-item">
+              <span class="stat-value">11+</span>
+              <span class="stat-label">Health Topics</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">24/7</span>
+              <span class="stat-label">Instant Access</span>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+              <span class="stat-value">100%</span>
+              <span class="stat-label">Educational & Safe</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Visual Illustration / Interactive Preview Card -->
+        <div class="hero-visual">
+          <div class="visual-card-glass">
+            <div class="visual-card-header">
+              <div class="bot-status">
+                <span class="status-indicator online"></span>
+                <span class="status-text">HealthAI Assistant Online</span>
+              </div>
+              <span class="visual-chip">Prototype v1.0</span>
+            </div>
+
+            <!-- Demo Message Exchange -->
+            <div class="visual-chat-preview">
+              <div class="preview-msg user">
+                <p>What are the common symptoms of cold?</p>
+              </div>
+              <div class="preview-msg bot">
+                <div class="preview-bot-avatar">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2zM7.5 13a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm9 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+                  </svg>
+                </div>
+                <div class="preview-bot-text">
+                  <strong>Common Cold Overview:</strong>
+                  <p>Common symptoms include runny nose, sore throat, sneezing, mild cough, and fatigue. Rest and hydration are key self-care steps.</p>
+                  <span class="preview-badge">🩺 Educational Info</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Safety Alert -->
+            <div class="visual-safety-note">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span>Provides educational information only. Not a medical diagnosis.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. CHATBOT SECTION ==================== -->
+    <section class="chatbot-section" id="chatbot">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">Interactive AI Assistant</div>
+          <h2 class="section-title">Health Information Chat Studio</h2>
+          <p class="section-subtitle">
+            Type your health-related question below or click any of the suggested topics to begin.
+          </p>
+        </div>
+
+        <div class="chatbot-wrapper">
+          <!-- Chat Window Box -->
+          <div class="chat-container" id="chatContainer">
+            
+            <!-- Chat Window Header -->
+            <div class="chat-header">
+              <div class="chat-header-info">
+                <div class="chat-avatar">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="10" rx="2" />
+                    <circle cx="12" cy="5" r="2" />
+                    <path d="M12 7v4" />
+                    <line x1="8" y1="16" x2="8" y2="16" />
+                    <line x1="16" y1="16" x2="16" y2="16" />
+                  </svg>
+                  <span class="online-indicator" title="Assistant Active"></span>
+                </div>
+                <div>
+                  <h3 class="chat-title">HealthAI Assistant</h3>
+                  <p class="chat-status" id="chatStatusText">Ready to assist with general health information</p>
+                </div>
+              </div>
+
+              <!-- Header Action Controls -->
+              <div class="chat-header-actions">
+                <button class="chat-action-btn" id="clearChatBtn" title="Clear conversation history">
+                  <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                  </svg>
+                  <span class="btn-label">Clear Chat</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Medical Banner inside Chat Window -->
+            <div class="chat-disclaimer-notice">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+                <line x1="12" y1="9" x2="12" y2="13" />
+                <line x1="12" y1="17" x2="12.01" y2="17" />
+              </svg>
+              <span><strong>Reminder:</strong> For urgent medical emergencies, please call your local emergency services (e.g. 911 / 112) immediately.</span>
+            </div>
+
+            <!-- Messages Stream Area -->
+            <div class="chat-messages" id="chatMessages" role="log" aria-live="polite">
+              <!-- Default Welcome Message -->
+              <div class="message-row bot-row" id="welcomeMessage">
+                <div class="msg-avatar">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                  </svg>
+                </div>
+                <div class="msg-bubble bot-bubble">
+                  <div class="msg-content">
+                    <p><strong>Hello! I am HealthAI,</strong> your educational health information assistant.</p>
+                    <p>You can ask me about common wellness topics, general symptoms, healthy living habits, or first-aid basics. How can I help you today?</p>
+                    <div class="safety-tag">
+                      <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/>
+                      </svg>
+                      Educational only • Not a diagnostic system
+                    </div>
+                  </div>
+                  <span class="msg-timestamp">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Typing Indicator (Hidden by default) -->
+            <div class="typing-indicator" id="typingIndicator" style="display: none;" aria-label="AI is typing response">
+              <div class="msg-avatar">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2a2 2 0 0 1 2 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 0 1 7 7h1a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-1v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1H2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h1a7 7 0 0 1 7-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 0 1 2-2z"/>
+                </svg>
+              </div>
+              <div class="typing-bubble">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+              </div>
+              <span class="typing-text">HealthAI is generating safe health information...</span>
+            </div>
+
+            <!-- Suggested Questions Area -->
+            <div class="suggested-prompts-bar">
+              <div class="prompts-header">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+                </svg>
+                <span>Suggested Questions:</span>
+              </div>
+              <div class="prompts-chips-wrapper" id="suggestedChipsContainer">
+                <button class="chip-btn" data-query="What are common symptoms of cold?">
+                  What are common symptoms of cold?
+                </button>
+                <button class="chip-btn" data-query="What are the symptoms of dehydration?">
+                  What are the symptoms of dehydration?
+                </button>
+                <button class="chip-btn" data-query="How can I improve my sleep?">
+                  How can I improve my sleep?
+                </button>
+                <button class="chip-btn" data-query="What are some healthy food habits?">
+                  What are some healthy food habits?
+                </button>
+                <button class="chip-btn" data-query="How can I maintain a healthy lifestyle?">
+                  How can I maintain a healthy lifestyle?
+                </button>
+                <button class="chip-btn" data-query="How to manage a mild headache?">
+                  How to manage a mild headache?
+                </button>
+                <button class="chip-btn" data-query="What is the first aid for minor cuts and burns?">
+                  First aid for minor cuts & burns
+                </button>
+                <button class="chip-btn" data-query="Tips to manage stress and mental wellness?">
+                  Tips for mental wellness & stress
+                </button>
+              </div>
+            </div>
+
+            <!-- Chat Input Bar -->
+            <form class="chat-input-form" id="chatForm" autocomplete="off">
+              <div class="input-container">
+                <label for="chatInput" class="visually-hidden">Type your health-related question</label>
+                <input 
+                  type="text" 
+                  id="chatInput" 
+                  class="chat-input-field" 
+                  placeholder="Ask a health question (e.g., 'What helps with a cough?')..." 
+                  maxlength="500" 
+                  required 
+                />
+                <button type="submit" class="chat-send-btn" id="sendBtn" title="Send message (Enter)">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                </button>
+              </div>
+              <p class="input-hint">Press <strong>Enter</strong> to send • This chatbot is strictly for general health awareness</p>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. HOW IT WORKS SECTION ==================== -->
+    <section class="how-it-works-section" id="how-it-works">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">Visual Architecture</div>
+          <h2 class="section-title">How the Chatbot Works</h2>
+          <p class="section-subtitle">
+            A transparent 3-step workflow illustrating how user inquiries are safely processed into general health guidance.
+          </p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-number-badge">01</div>
+            <div class="step-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                <path d="M12 8v4" />
+                <path d="M12 16h.01" />
+              </svg>
+            </div>
+            <h3 class="step-title">User Inquires</h3>
+            <p class="step-text">
+              The user enters a question regarding general symptoms, daily lifestyle habits, preventive health, or basic wellness.
+            </p>
+            <div class="step-footer-tag">Step 1: Input Analysis</div>
+          </div>
+
+          <!-- Connecting Arrow (desktop) -->
+          <div class="step-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card highlight">
+            <div class="step-number-badge">02</div>
+            <div class="step-icon-box accent">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" />
+                <rect x="9" y="9" width="6" height="6" />
+                <line x1="9" y1="1" x2="9" y2="4" />
+                <line x1="15" y1="1" x2="15" y2="4" />
+                <line x1="9" y1="20" x2="9" y2="23" />
+                <line x1="15" y1="20" x2="15" y2="23" />
+                <line x1="20" y1="9" x2="23" y2="9" />
+                <line x1="20" y1="14" x2="23" y2="14" />
+                <line x1="1" y1="9" x2="4" y2="9" />
+                <line x1="1" y1="14" x2="4" y2="14" />
+              </svg>
+            </div>
+            <h3 class="step-title">AI Processing</h3>
+            <p class="step-text">
+              The system tokenizes keywords, matches safe medical topics, filters out harmful advice, and screens for critical emergency red flags.
+            </p>
+            <div class="step-footer-tag">Step 2: Safety & Intent Matching</div>
+          </div>
+
+          <!-- Connecting Arrow (desktop) -->
+          <div class="step-connector" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-number-badge">03</div>
+            <div class="step-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+                <polyline points="10 9 9 9 8 9" />
+              </svg>
+            </div>
+            <h3 class="step-title">Structured Guidance</h3>
+            <p class="step-text">
+              HealthAI returns clear general info, common signs, evidence-based self-care, and explicit reminders on when to see a physician.
+            </p>
+            <div class="step-footer-tag">Step 3: Responsible Output</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. FEATURES SECTION ==================== -->
+    <section class="features-section" id="features">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">Core Capabilities</div>
+          <h2 class="section-title">Key Features of HealthAI</h2>
+          <p class="section-subtitle">
+            Engineered with student simplicity, healthcare UX standards, and safety-first design.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon bg-blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">AI-Powered Conversation</h3>
+            <p class="feature-desc">
+              Context-aware dialog flow that categorizes health queries and responds with structured, coherent explanations.
+            </p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon bg-green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Simple Health Information</h3>
+            <p class="feature-desc">
+              Demystifies complex medical terminology into plain, readable language suitable for students, seniors, and patients.
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon bg-amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Quick Responses</h3>
+            <p class="feature-desc">
+              Instant offline keyword evaluation ensures immediate access even without an active high-speed internet connection.
+            </p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon bg-purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                <line x1="8" y1="21" x2="16" y2="21" />
+                <line x1="12" y1="17" x2="12" y2="21" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Easy-to-Use Interface</h3>
+            <p class="feature-desc">
+              Clean responsive interface with suggested query chips, typing indicators, and mobile-optimized touch controls.
+            </p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon bg-teal">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Health Awareness</h3>
+            <p class="feature-desc">
+              Encourages preventive lifestyle habits, hydration discipline, sleep hygiene, balanced nutrition, and physical activity.
+            </p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon bg-rose">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                <path d="M12 8v4" />
+                <path d="M12 16h.01" />
+              </svg>
+            </div>
+            <h3 class="feature-title">Professional Care Reminder</h3>
+            <p class="feature-desc">
+              Explicit warnings in every response highlighting red-flag symptoms that demand an in-person consultation with a doctor.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. COLLEGE PROJECT OBJECTIVES ==================== -->
+    <section class="objectives-section" id="objectives">
+      <div class="container">
+        <div class="section-header text-center">
+          <div class="badge-pill">Academic Framework</div>
+          <h2 class="section-title">Project Objectives & Scope</h2>
+          <p class="section-subtitle">
+            Defined criteria guiding the research, design, and implementation of this college demonstration project.
+          </p>
+        </div>
+
+        <div class="objectives-grid">
+          <div class="objective-card">
+            <div class="obj-counter">01</div>
+            <div class="obj-body">
+              <h3 class="obj-title">Provide Quick Access to General Health Information</h3>
+              <p class="obj-desc">Deliver immediate, 24/7 informational answers to common health inquiries without user authentication barriers.</p>
+            </div>
+          </div>
+
+          <div class="objective-card">
+            <div class="obj-counter">02</div>
+            <div class="obj-body">
+              <h3 class="obj-title">Make Health Information Easier to Understand</h3>
+              <p class="obj-desc">Break down complex clinical jargon into plain, patient-friendly language that improves digital health literacy.</p>
+            </div>
+          </div>
+
+          <div class="objective-card">
+            <div class="obj-counter">03</div>
+            <div class="obj-body">
+              <h3 class="obj-title">Answer Frequently Asked Health Questions</h3>
+              <p class="obj-desc">Maintain an organized repository of common queries spanning cough, cold, fever, hydration, and first aid.</p>
+            </div>
+          </div>
+
+          <div class="objective-card">
+            <div class="obj-counter">04</div>
+            <div class="obj-body">
+              <h3 class="obj-title">Promote Healthy Habits & Preventive Awareness</h3>
+              <p class="obj-desc">Educate users on routine hydration, sleep schedules, balanced diets, exercise, and proactive lifestyle interventions.</p>
+            </div>
+          </div>
+
+          <div class="objective-card">
+            <div class="obj-counter">05</div>
+            <div class="obj-body">
+              <h3 class="obj-title">Encourage Users to Seek Professional Medical Advice</h3>
+              <p class="obj-desc">Consistently emphasize that automated systems cannot replace physicians, highlighting red-flag symptoms requiring in-person diagnosis.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. ABOUT PROJECT & METHODOLOGY ==================== -->
+    <section class="about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-text-col">
+            <div class="badge-pill">College Capstone Project</div>
+            <h2 class="section-title">About HealthAI</h2>
+            <p class="lead-text">
+              The <strong>“AI-Based Health Information Chatbot”</strong> is an academic prototype developed to demonstrate the responsible application of conversational interfaces in public health education.
+            </p>
+
+            <div class="about-accordion">
+              <!-- Item 1 -->
+              <details class="accordion-item" open>
+                <summary class="accordion-header">
+                  <span>Why This Project Was Created</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="accordion-content">
+                  <p>In online spaces, users often search symptoms and encounter alarming, unverified, or misleading medical misinformation. This project was developed to provide a controlled, reliable educational interface that emphasizes safe self-care and encourages timely professional medical intervention.</p>
+                </div>
+              </details>
+
+              <!-- Item 2 -->
+              <details class="accordion-item">
+                <summary class="accordion-header">
+                  <span>How AI Empowers Health Information Access</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="accordion-content">
+                  <p>Conversational agents allow users to query naturally using everyday language rather than complex clinical codes. By classifying inquiries and presenting structured information (overview, symptoms, self-care, warnings), AI reduces cognitive overload and improves comprehension.</p>
+                </div>
+              </details>
+
+              <!-- Item 3 -->
+              <details class="accordion-item">
+                <summary class="accordion-header">
+                  <span>System Limitations & Constraints</span>
+                  <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </summary>
+                <div class="accordion-content">
+                  <ul class="limitation-list">
+                    <li><strong>No Clinical Diagnostic Capability:</strong> The system cannot run medical tests, interpret patient history, or diagnose diseases.</li>
+                    <li><strong>No Drug Prescription:</strong> The system never prescribes pharmaceutical dosages or specific prescription medications.</li>
+                    <li><strong>No Real-time Emergency Monitoring:</strong> Not connected to dispatch services or live hospital triage infrastructure.</li>
+                    <li><strong>Prototype Dataset:</strong> Designed for demonstration and educational evaluation within academic project boundaries.</li>
+                  </ul>
+                </div>
+              </details>
+            </div>
+          </div>
+
+          <!-- Project Specs Card -->
+          <div class="about-card-col">
+            <div class="specs-card">
+              <h3 class="specs-title">Project Specification Sheet</h3>
+              <div class="spec-row">
+                <span class="spec-label">Project Title</span>
+                <span class="spec-value">AI-Based Health Information Chatbot</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Application Name</span>
+                <span class="spec-value">HealthAI</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Category</span>
+                <span class="spec-value">Healthcare Informatics / AI Demo</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Frontend Stack</span>
+                <span class="spec-value">HTML5, CSS3, Modular ES6+ JS</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Intelligence Engine</span>
+                <span class="spec-value">Regex & Tokenized Intent Scorer + Real API Adapter</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Target Audience</span>
+                <span class="spec-value">Students, Educators, General Public</span>
+              </div>
+              <div class="spec-row">
+                <span class="spec-label">Deployment</span>
+                <span class="spec-value">Zero-install Browser Native / Static Hosting</span>
+              </div>
+
+              <div class="specs-footer-callout">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 16v-4" />
+                  <path d="M12 8h.01" />
+                </svg>
+                <span>Meets all requirements for College Final Year / Semester Evaluation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. MEDICAL DISCLAIMER SECTION ==================== -->
+    <section class="disclaimer-section" id="disclaimer">
+      <div class="container">
+        <div class="disclaimer-card">
+          <div class="disclaimer-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z" />
+              <line x1="12" y1="9" x2="12" y2="13" />
+              <line x1="12" y1="17" x2="12.01" y2="17" />
+            </svg>
+          </div>
+          <div class="disclaimer-body">
+            <h2 class="disclaimer-heading">Official Medical & Educational Disclaimer</h2>
+            <blockquote class="disclaimer-quote">
+              “This chatbot provides general health information for educational purposes only. It does not provide medical diagnosis, treatment, or professional medical advice. Always consult a qualified healthcare professional for medical concerns. In an emergency, contact your local emergency services.”
+            </blockquote>
+            <div class="disclaimer-points">
+              <div class="disc-point">
+                <strong>Not a Doctor:</strong> The AI system cannot replace the training, clinical judgment, or physical examination of a registered physician.
+              </div>
+              <div class="disc-point">
+                <strong>Emergency Action:</strong> If you or someone around you experiences acute chest pain, severe shortness of breath, sudden numbness, or heavy bleeding, seek emergency medical care immediately.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== 8. CONTACT & FOOTER ==================== -->
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <!-- Footer Brand Column -->
+      <div class="footer-col brand-col">
+        <div class="footer-brand">
+          <div class="logo-icon sm">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+              <path d="M12 7v6" />
+              <path d="M9 10h6" />
+            </svg>
+          </div>
+          <span class="footer-brand-title">HealthAI</span>
+        </div>
+        <p class="footer-tagline">
+          AI-Based Health Information Chatbot — An interactive educational tool demonstrating responsible, conversational health awareness.
+        </p>
+        <div class="footer-academic-badge">
+          <span>College Academic Project Demonstration</span>
+        </div>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="footer-col">
+        <h4 class="footer-title">Navigation</h4>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#chatbot">Health Chatbot</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#features">System Features</a></li>
+          <li><a href="#objectives">Project Objectives</a></li>
+        </ul>
+      </div>
+
+      <!-- Project Information -->
+      <div class="footer-col">
+        <h4 class="footer-title">Project Details</h4>
+        <ul class="footer-links">
+          <li><a href="#about">About Project</a></li>
+          <li><a href="#about">System Limitations</a></li>
+          <li><a href="#disclaimer">Medical Disclaimer</a></li>
+          <li><a href="README.md" target="_blank" rel="noopener">Documentation & Viva Guide</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact & Help -->
+      <div class="footer-col">
+        <h4 class="footer-title">Contact & Help</h4>
+        <p class="footer-text">
+          Built as a student engineering project for college submission and evaluation.
+        </p>
+        <div class="footer-helpline-box">
+          <span class="helpline-title">🚨 Emergency Services:</span>
+          <span class="helpline-numbers">USA: 911 | India: 112 / 108 | UK: 999</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright Bar -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 HealthAI — AI-Based Health Information Chatbot. Built for Educational & College Project Purposes.</p>
+        <a href="#home" class="back-to-top" id="backToTopBtn" aria-label="Back to top of page">
+          <span>Back to top</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== JAVASCRIPT MODULES ==================== -->
+  <script src="js/knowledgeBase.js"></script>
+  <script src="js/aiService.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
